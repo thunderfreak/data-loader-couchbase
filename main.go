@@ -149,6 +149,7 @@ func main() {
 	})
 	if err != nil {
 		fmt.Println("Error while creating connection: ", err)
+		return
 	}
 
 	bucket := cluster.Bucket(bucketName)
@@ -157,6 +158,7 @@ func main() {
 	err = bucket.WaitUntilReady(5*time.Second, nil)
 	if err != nil {
 		fmt.Println("Error while wait for bucket: ", err)
+		return
 	}
 
 	// Reference to collection
